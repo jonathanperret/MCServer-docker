@@ -1,6 +1,6 @@
 # Dockerfile to build a MCServer instance.
 
-FROM tianon/debian:wheezy
+FROM debian:wheezy
 
 MAINTAINER Alexander Harkness (bearbin)
 
