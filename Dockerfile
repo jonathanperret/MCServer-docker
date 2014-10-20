@@ -4,14 +4,8 @@ FROM debian:wheezy
 
 MAINTAINER Alexander Harkness (bearbin)
 
-# Make sure the container is updated.
-RUN apt-get update && apt-get upgrade -y
-
-# Install basic tools
-RUN apt-get install -y tar nano wget
-
 # Install the required components.
-RUN apt-get install -y git gcc g++ cmake make
+RUN apt-get update && apt-get install -y git gcc g++ cmake make
 
 # Clone the MCServer repository.
 RUN git clone https://github.com/mc-server/MCServer.git /mcssrc
