@@ -8,13 +8,15 @@ MAINTAINER Alexander Harkness (bearbin)
 RUN apt-get update && apt-get install -y git gcc g++ cmake make
 
 # Clone the MCServer repository.
-RUN git clone https://github.com/mc-server/MCServer.git /mcssrc
-RUN cd /mcssrc && git submodule update --init
+RUN git clone https://github.com/mc-server/MCServer.git /mcssrc && \
+	cd /mcssrc && git submodule update --init
 
 # Build MCServer
-RUN cd /mcssrc && cmake . -DCMAKE_BUILD_TYPE=RELEASE && make -j 2
-
-RUN mkdir /mcsbin && cp -r /mcssrc/MCServer/* /mcsbin/
+RUN cd /mcssrc && cmake . -DCMAKE_BUILD_TYPE=RELEASE && \
+	make && \
+	mkdir /mcsbin && \
+	cp -r /mcssrc/MCServer/* /mcsbin/ && \
+	make clean
 
 # Expose the recommended ports.
 EXPOSE 25565 8080
