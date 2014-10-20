@@ -16,7 +16,7 @@ RUN cd /mcssrc && cmake . -DCMAKE_BUILD_TYPE=RELEASE && \
 	make && \
 	mkdir /mcsbin && \
 	cp -r /mcssrc/MCServer/* /mcsbin/ && \
-	make clean
+	cd / && rm -rf /mcssrc
 
 # Expose the recommended ports.
 EXPOSE 25565 8080
