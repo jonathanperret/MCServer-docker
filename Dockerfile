@@ -13,7 +13,7 @@ RUN git clone https://github.com/mc-server/MCServer.git /mcssrc && \
 
 # Build MCServer
 RUN cd /mcssrc && cmake . -DCMAKE_BUILD_TYPE=RELEASE && \
-	make && \
+	make -j 2 && \
 	mkdir /mcsbin && \
 	cp -r /mcssrc/MCServer/* /mcsbin/ && \
 	cd / && rm -rf /mcssrc
